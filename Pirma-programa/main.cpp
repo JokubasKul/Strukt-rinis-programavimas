@@ -87,7 +87,7 @@ int main()
     b3=b1%b2;
     
     cout <<"Liekana: "<<b3<<endl;
-    cout <<"Skaitmenu suma" <<
+
     return 0;
 }
 
