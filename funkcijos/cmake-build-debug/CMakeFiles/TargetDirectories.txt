@@ -1,0 +1,3 @@
+C:/Users/s057545/Documents/Strukt-rinis-programavimas/funkcijos/cmake-build-debug/CMakeFiles/funkcijos.dir
+C:/Users/s057545/Documents/Strukt-rinis-programavimas/funkcijos/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/s057545/Documents/Strukt-rinis-programavimas/funkcijos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
