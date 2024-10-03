@@ -2,7 +2,7 @@
 using namespace std;
 int main() {
     int choice, choice1, choice2, choice3, choice4;
-    int gbp1, gbp2, gbp3, usd1, usd2, usd3, eur1, eur2, eur3, inr1, inr2, inr3,gbp1s, gbp2s, gbp3s, usd1s, usd2s, usd3s, inr1s, inr2s, inr3s, eur1s, eur2s, eur3s;
+    double gbp1, gbp2, gbp3, usd1, usd2, usd3, eur1, eur2, eur3, inr1, inr2, inr3,gbp1s, gbp2s, gbp3s, usd1s, usd2s, usd3s, inr1s, inr2s, inr3s, eur1s, eur2s, eur3s;
     cout <<"Pasirinkite savo valiuta: "<<endl;
     cout <<"1. EUR"<<endl;
     cout <<"2. GBP"<<endl;
@@ -15,18 +15,19 @@ int main() {
         case 1:
             cout <<"Jusu valiuta yra eurai"<<endl;
         cout <<"I ka norite iskeisti eurus? "<<endl;
-        cout <<"1. GBP bendras"<<endl;
-        cout <<"2. GBP pirkti"<<endl;
-        cout <<"3. GBP parduoti"<<endl;
-        cout <<"4. USD bendras"<<endl;
-        cout <<"5. USD pirkti"<<endl;
-        cout <<"6. USD parduoti"<<endl;
+        cout <<"1. USD bendras"<<endl;
+        cout <<"2. USD pirkti"<<endl;
+        cout <<"3. USD parduoti"<<endl;
+        cout <<"4. GBP bendras"<<endl;
+        cout <<"5. GBP pirkti"<<endl;
+        cout <<"6. GBP parduoti"<<endl;
         cout <<"7. INR bendras"<<endl;
         cout <<"8. INR prikti"<<endl;
         cout <<"9. INR parduoti"<<endl;
         cout <<"Jusu pasirinkimas: "<<endl;
         cin >>choice1;
 
+        //EUR
         switch (choice1) {
             case 1:
                 cout <<"Jus pasirinkote iskeisti eurus i JAV DOLERIUS"<<endl;
@@ -48,7 +49,7 @@ int main() {
                 cout <<"Jus pasirinkote parduoti USD "<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>usd3;
-            usd3s=usd3*1.13;
+            usd3s=usd3/1.13;
             cout <<"Jus gausite"<<usd3s<<endl;
             break;
 
@@ -72,7 +73,7 @@ int main() {
                 cout <<"Jus pasirinkote parduoti GBP "<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>gbp3;
-            gbp3s=gbp3*0.906;
+            gbp3s=gbp3/0.906;
             cout <<"Jus gausite"<<gbp3s<<endl;
             break;
 
@@ -80,7 +81,7 @@ int main() {
                 cout <<"Jus pasirinkote iskeisti eurus i Indijos rupija"<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>inr1;
-            inr1s=inr1*0.859;
+            inr1s=inr1*88.8260;
             cout <<"Jus gausite: "<<inr1s<<endl;
             break;
 
@@ -88,7 +89,7 @@ int main() {
                 cout <<"Jus pasirinkote pirkti INR su eurais"<<endl;
             cout <<"Irasykite kieki:"<<endl;
             cin >>inr2;
-            inr2s=inr2*0.845;
+            inr2s=inr2*85.2614;
             cout <<"Jus parduosite: "<<inr2s<<endl;
             break;
 
@@ -96,7 +97,7 @@ int main() {
                 cout <<"Jus pasirinkote parduoti INR "<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>inr3;
-            inr3s=inr3*0.906;
+            inr3s=inr3/92.8334;
             cout <<"Jus gausite"<<inr3s<<endl;
             break;
         }
@@ -104,17 +105,19 @@ int main() {
         case 2:
             cout <<"Jusu valiuta yra Didziosios britanijos svarai"<<endl;
         cout <<"I ka norite iskeisti DP svarus? "<<endl;
-        cout <<"1. EUR bendras"<<endl;
-        cout <<"2. EUR pirkti"<<endl;
-        cout <<"3. EUR parduoti"<<endl;
-        cout <<"4. USD bendras"<<endl;
-        cout <<"5. USD pirkti"<<endl;
-        cout <<"6. USD parduoti"<<endl;
+        cout <<"1. USD bendras"<<endl;
+        cout <<"2. USD pirkti"<<endl;
+        cout <<"3. USD parduoti"<<endl;
+        cout <<"4. EUR bendras"<<endl;
+        cout <<"5. EUR pirkti"<<endl;
+        cout <<"6. EUR parduoti"<<endl;
         cout <<"7. INR bendras"<<endl;
         cout <<"8. INR prikti"<<endl;
         cout <<"9. INR parduoti"<<endl;
         cout <<"Jusu pasirinkimas: "<<endl;
         cin >>choice2;
+
+        //GBP
         switch (choice2) {
             case 1:
                 cout <<"Jus pasirinkote iskeisti GBP i JAV DOLERIUS"<<endl;
@@ -128,7 +131,7 @@ int main() {
                 cout <<"Jus pasirinkote pirkti USD su GBP"<<endl;
             cout <<"Irasykite kieki:"<<endl;
             cin >>usd2;
-            usd2s=usd2*1.21;
+            usd2s=usd2*1.547;
             cout <<"Jus parduosite: "<<usd2s<<endl;
             break;
 
@@ -136,7 +139,7 @@ int main() {
                 cout <<"Jus pasirinkote parduoti GBP "<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>usd3;
-            usd3s=usd3*1.14;
+            usd3s=usd3/1.1309;
             cout <<"Jus gausite"<<usd3s<<endl;
             break;
 
@@ -160,7 +163,7 @@ int main() {
                 cout <<"Jus pasirinkote parduoti GBP su eurais "<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>eur3;
-            eur3s=eur3*1.14;
+            eur3s=eur3/0.9060;
             cout <<"Jus gausite"<<eur3s<<endl;
             break;
 
@@ -176,7 +179,7 @@ int main() {
                 cout <<"Jus pasirinkote pirkti INR su GBP"<<endl;
             cout <<"Irasykite kieki:"<<endl;
             cin >>inr2;
-            inr2s=inr2*1.21;
+            inr2s=inr2*85.2614;
             cout <<"Jus parduosite: "<<inr2s<<endl;
             break;
 
@@ -184,7 +187,7 @@ int main() {
                 cout <<"Jus pasirinkote parduoti INR su GBP"<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>inr3;
-            inr3s=inr3*1.14;
+            inr3s=inr3/92.8334;
             cout <<"Jus gausite"<<inr3s<<endl;
             break;
         }
@@ -204,6 +207,7 @@ int main() {
         cout <<"Jusu pasirinkimas: "<<endl;
         cin >>choice3;
 
+        //INR
         switch (choice3) {
             case 1:
                 cout <<"Jus pasirinkote iskeisti Indijos rupinus i JAV DOLERIUS"<<endl;
@@ -217,7 +221,7 @@ int main() {
                 cout <<"Jus pasirinkote pirkti USD su INR"<<endl;
             cout <<"Irasykite kieki:"<<endl;
             cin >>usd2;
-            usd2s=usd2*0.01;
+            usd2s=usd2*1.0713;
             cout <<"Jus parduosite: "<<usd2s<<endl;
             break;
 
@@ -225,7 +229,7 @@ int main() {
                 cout <<"Jus pasirinkote parduoti USD SU INR "<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>usd3;
-            usd3s=usd3*0.01;
+            usd3s=usd3/1.1309;
             cout <<"Jus gausite"<<usd3s<<endl;
             break;
 
@@ -249,7 +253,7 @@ int main() {
                 cout <<"Jus pasirinkote parduoti eurus su INR "<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>eur3;
-            eur3s=eur3*0.01;
+            eur3s=eur3/92.8334;
             cout <<"Jus gausite"<<eur3s<<endl;
             break;
 
@@ -265,7 +269,7 @@ int main() {
                 cout <<"Jus pasirinkote pirkti GBP su INR"<<endl;
             cout <<"Irasykite kieki:"<<endl;
             cin >>gbp2;
-            gbp2s=gbp2*0.01;
+            gbp2s=gbp2*0.8450;
             cout <<"Jus parduosite: "<<gbp2s<<endl;
             break;
 
@@ -273,7 +277,7 @@ int main() {
                 cout <<"Jus pasirinkote parduoti GBP su INR"<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>gbp3;
-            gbp3s=gbp3*0.01;
+            gbp3s=gbp3/0.9060;
             cout <<"Jus gausite"<<gbp3s<<endl;
             break;
         }
@@ -293,12 +297,13 @@ int main() {
         cout <<"Jusu pasirinkimas: "<<endl;
         cin >>choice4;
 
+        //USD
         switch (choice4) {
             case 1:
                 cout <<"Jus pasirinkote iskeisti JAV dolerius i Indijos rupinus"<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>inr1;
-            inr1s=inr1*83.5466;
+            inr1s=inr1*88.8260;
             cout <<"Jus gausite: "<<inr1s<<endl;
             break;
 
@@ -306,7 +311,7 @@ int main() {
                 cout <<"Jus pasirinkote pirkti INR su USD"<<endl;
             cout <<"Irasykite kieki:"<<endl;
             cin >>inr2;
-            inr2s=inr2*0.01;
+            inr2s=inr2*85.2614;
             cout <<"Jus parduosite: "<<inr2s<<endl;
             break;
 
@@ -314,7 +319,7 @@ int main() {
                 cout <<"Jus pasirinkote parduoti INR su USD "<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>inr3;
-            inr3s=inr3*0.01;
+            inr3s=inr3/92.8334;
             cout <<"Jus gausite"<<inr3s<<endl;
             break;
 
@@ -330,7 +335,7 @@ int main() {
                 cout <<"Jus pasirinkote pirkti eurus su USD"<<endl;
             cout <<"Irasykite kieki:"<<endl;
             cin >>eur2;
-            eur2s=eur2*0.90;
+            eur2s=eur2*1.0547;
             cout <<"Jus parduosite: "<<eur2s<<endl;
             break;
 
@@ -338,7 +343,7 @@ int main() {
                 cout <<"Jus pasirinkote parduoti eurus su USD "<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>eur3;
-            eur3s=eur3*0.88;
+            eur3s=eur3/1.1309;
             cout <<"Jus gausite"<<eur3s<<endl;
             break;
 
@@ -354,7 +359,7 @@ int main() {
                 cout <<"Jus pasirinkote pirkti GBP su USD"<<endl;
             cout <<"Irasykite kieki:"<<endl;
             cin >>gbp2;
-            gbp2s=gbp2*1.25;
+            gbp2s=gbp2*0.8450;
             cout <<"Jus parduosite: "<<gbp2s<<endl;
             break;
 
@@ -362,7 +367,7 @@ int main() {
                 cout <<"Jus pasirinkote parduoti GBP su USD"<<endl;
             cout <<"Irasykite kieki: "<<endl;
             cin >>gbp3;
-            gbp3s=gbp3*0.90;
+            gbp3s=gbp3*0.9060;
             cout <<"Jus gausite"<<gbp3s<<endl;
             break;
         }
@@ -371,7 +376,7 @@ int main() {
 
 
 
-//a
+
 
 
 
