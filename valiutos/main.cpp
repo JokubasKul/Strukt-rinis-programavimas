@@ -3,6 +3,7 @@ using namespace std;
 int main() {
     int choice, choice1, choice2, choice3, choice4;
     double gbp1, gbp2, gbp3, usd1, usd2, usd3, eur1, eur2, eur3, inr1, inr2, inr3,gbp1s, gbp2s, gbp3s, usd1s, usd2s, usd3s, inr1s, inr2s, inr3s, eur1s, eur2s, eur3s;
+
     cout <<"Pasirinkite savo valiuta: "<<endl;
     cout <<"1. EUR"<<endl;
     cout <<"2. GBP"<<endl;
@@ -28,6 +29,7 @@ int main() {
         cin >>choice1;
 
         //EUR
+
         switch (choice1) {
             case 1:
                 cout <<"Jus pasirinkote iskeisti eurus i JAV DOLERIUS"<<endl;
@@ -50,7 +52,7 @@ int main() {
             cout <<"Irasykite kieki: "<<endl;
             cin >>usd3;
             usd3s=usd3/1.13;
-            cout <<"Jus gausite"<<usd3s<<endl;
+            cout <<"Jus gausite: "<<usd3s<<endl;
             break;
 
             case 4:
@@ -74,7 +76,7 @@ int main() {
             cout <<"Irasykite kieki: "<<endl;
             cin >>gbp3;
             gbp3s=gbp3/0.906;
-            cout <<"Jus gausite"<<gbp3s<<endl;
+            cout <<"Jus gausite: "<<gbp3s<<endl;
             break;
 
             case 7:
@@ -98,10 +100,10 @@ int main() {
             cout <<"Irasykite kieki: "<<endl;
             cin >>inr3;
             inr3s=inr3/92.8334;
-            cout <<"Jus gausite"<<inr3s<<endl;
+            cout <<"Jus gausite: "<<inr3s<<endl;
             break;
         }
-        break;
+
         case 2:
             cout <<"Jusu valiuta yra Didziosios britanijos svarai"<<endl;
         cout <<"I ka norite iskeisti DP svarus? "<<endl;
@@ -140,7 +142,7 @@ int main() {
             cout <<"Irasykite kieki: "<<endl;
             cin >>usd3;
             usd3s=usd3/1.1309;
-            cout <<"Jus gausite"<<usd3s<<endl;
+            cout <<"Jus gausite: "<<usd3s<<endl;
             break;
 
             case 4:
@@ -164,7 +166,7 @@ int main() {
             cout <<"Irasykite kieki: "<<endl;
             cin >>eur3;
             eur3s=eur3/0.9060;
-            cout <<"Jus gausite"<<eur3s<<endl;
+            cout <<"Jus gausite: "<<eur3s<<endl;
             break;
 
             case 7:
@@ -188,10 +190,10 @@ int main() {
             cout <<"Irasykite kieki: "<<endl;
             cin >>inr3;
             inr3s=inr3/92.8334;
-            cout <<"Jus gausite"<<inr3s<<endl;
+            cout <<"Jus gausite: "<<inr3s<<endl;
             break;
         }
-        break;
+
         case 3:
             cout <<"Jusu valiuta yra Indijos rupinai"<<endl;
         cout <<"I ka norite iskeisti Indijos rupinus? "<<endl;
@@ -230,7 +232,7 @@ int main() {
             cout <<"Irasykite kieki: "<<endl;
             cin >>usd3;
             usd3s=usd3/1.1309;
-            cout <<"Jus gausite"<<usd3s<<endl;
+            cout <<"Jus gausite: "<<usd3s<<endl;
             break;
 
             case 4:
@@ -254,7 +256,7 @@ int main() {
             cout <<"Irasykite kieki: "<<endl;
             cin >>eur3;
             eur3s=eur3/92.8334;
-            cout <<"Jus gausite"<<eur3s<<endl;
+            cout <<"Jus gausite: "<<eur3s<<endl;
             break;
 
             case 7:
@@ -278,10 +280,10 @@ int main() {
             cout <<"Irasykite kieki: "<<endl;
             cin >>gbp3;
             gbp3s=gbp3/0.9060;
-            cout <<"Jus gausite"<<gbp3s<<endl;
+            cout <<"Jus gausite: "<<gbp3s<<endl;
             break;
         }
-        break;
+
         case 4:
             cout <<"Jusu valiuta yra JAV doleriai"<<endl;
         cout <<"I ka norite iskeisti Indijos rupinus? "<<endl;
@@ -320,7 +322,7 @@ int main() {
             cout <<"Irasykite kieki: "<<endl;
             cin >>inr3;
             inr3s=inr3/92.8334;
-            cout <<"Jus gausite"<<inr3s<<endl;
+            cout <<"Jus gausite: "<<inr3s<<endl;
             break;
 
             case 4:
@@ -344,7 +346,7 @@ int main() {
             cout <<"Irasykite kieki: "<<endl;
             cin >>eur3;
             eur3s=eur3/1.1309;
-            cout <<"Jus gausite"<<eur3s<<endl;
+            cout <<"Jus gausite: "<<eur3s<<endl;
             break;
 
             case 7:
@@ -368,10 +370,12 @@ int main() {
             cout <<"Irasykite kieki: "<<endl;
             cin >>gbp3;
             gbp3s=gbp3*0.9060;
-            cout <<"Jus gausite"<<gbp3s<<endl;
+            cout <<"Jus gausite: "<<gbp3s<<endl;
             break;
+            default:
+                cout <<"Tokio pasirinkimo nera, bandykite dar karta"<<endl;
         }
-        break;
+
     }
 
 
