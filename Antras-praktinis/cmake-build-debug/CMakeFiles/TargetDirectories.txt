@@ -1,3 +1,3 @@
-C:/Users/s057545/Desktop/progrm/Antras-praktinis/cmake-build-debug/CMakeFiles/Antras_praktinis.dir
-C:/Users/s057545/Desktop/progrm/Antras-praktinis/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/s057545/Desktop/progrm/Antras-praktinis/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/s057545/Documents/Strukt-rinis-programavimas/Antras-praktinis/cmake-build-debug/CMakeFiles/Antras_praktinis.dir
+C:/Users/s057545/Documents/Strukt-rinis-programavimas/Antras-praktinis/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/s057545/Documents/Strukt-rinis-programavimas/Antras-praktinis/cmake-build-debug/CMakeFiles/rebuild_cache.dir

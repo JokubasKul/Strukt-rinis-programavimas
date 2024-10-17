@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/s057545/Desktop/progrm/Antras-praktinis
+# Install script for directory: C:/Users/s057545/Documents/Strukt-rinis-programavimas/Antras-praktinis
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/s057545/Desktop/progrm/Antras-praktinis/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/s057545/Documents/Strukt-rinis-programavimas/Antras-praktinis/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
