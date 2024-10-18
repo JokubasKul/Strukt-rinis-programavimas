@@ -1,4 +1,8 @@
 #include <iostream>
+<<<<<<< HEAD
+#include <cmath>
+=======
+>>>>>>> d0c4352624424259200d32b8dbfaa2213bd0e910
 using namespace std;
 
 int getRandomNumber() {
@@ -10,6 +14,14 @@ int getRandomNumber() {
 }
 //-----------------------------------1------------------------------------------
 
+<<<<<<< HEAD
+bool balse (string raide) {
+
+    if (raide == "a"||raide == "e"||raide == "i"||raide == "o"||raide == "u") {
+        return true;
+    }
+        return false;
+=======
 bool balse () {
 
 string raide;
@@ -21,6 +33,7 @@ string raide;
         cout <<"False"<<endl;
     }
     return 0;
+>>>>>>> d0c4352624424259200d32b8dbfaa2213bd0e910
 }
 //------------------------------------2-----------------------------------------
 
@@ -87,6 +100,11 @@ cout <<"Irasykite teigiama skaiciu "<<endl;
 }
 int main() {
 int choice = 0;
+<<<<<<< HEAD
+    string raide;
+    string result;
+=======
+>>>>>>> d0c4352624424259200d32b8dbfaa2213bd0e910
     while (choice <5) {
         cout <<"----------Pasirinkite funkcija (1-4)------- "<<endl;
         cout <<"1. Balse"<<endl;
@@ -98,7 +116,14 @@ int choice = 0;
         switch (choice) {
             case 1:
               cout <<"Jus pasirinkote pirma funkcija"<<endl;
+<<<<<<< HEAD
+            cout <<"Iveskite viena raide: "<<endl;
+            cin>>raide;
+            result = balse(raide) == 1 ? "True" : "False";
+            cout<<result <<endl;
+=======
             balse();
+>>>>>>> d0c4352624424259200d32b8dbfaa2213bd0e910
             break;
             case 2:
                 cout <<"Jus pasirinkote antra funkcija"<<endl;
@@ -117,7 +142,11 @@ int choice = 0;
                 cout <<"Programa baigta"<<endl;
         }
     }
+<<<<<<< HEAD
+//a
+=======
 
+>>>>>>> d0c4352624424259200d32b8dbfaa2213bd0e910
 
 
     return 0;

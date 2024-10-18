@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 C:/Users/s057545/Documents/Strukt-rinis-programavimas/Antras-praktinis/cmake-build-debug/CMakeFiles/Antras_praktinis.dir
 C:/Users/s057545/Documents/Strukt-rinis-programavimas/Antras-praktinis/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/s057545/Documents/Strukt-rinis-programavimas/Antras-praktinis/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+=======
+C:/Users/s057545/Documents/Strukt-rinis-programavimas/Antras-praktinis/cmake-build-debug/CMakeFiles/Antras_praktinis.dir
+C:/Users/s057545/Documents/Strukt-rinis-programavimas/Antras-praktinis/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/s057545/Documents/Strukt-rinis-programavimas/Antras-praktinis/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+>>>>>>> d0c4352624424259200d32b8dbfaa2213bd0e910
