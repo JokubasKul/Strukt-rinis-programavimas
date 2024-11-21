@@ -4,113 +4,147 @@
 
 using namespace std;
 
-const char ABECELE[26] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+ char ABECELE[26] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
 void abeceleSifravimas() {
 
-    char tekstas[50];
+    char zodis[50];
+    char raktas[50];
     char rezultatas[50];
-    int poslinkis, tekstoIlgis, rezultatoIndeksas, k = 0;
+    int zodzioIlgis, raktoIlgis,rezultatoIndeksas,j=0;
+    int zodisf[50],raktasf[50];
 
 
-    cout<<"Parasykite teksta"<<endl;
-    cin>>tekstas;
+    cout<<"Irasykite zodi: "<<endl;
+    cin>>zodis;
 
-    tekstoIlgis = strlen(tekstas);
-    cout<<"Parasykite poslinki "<<"(turi buti nuo 1 iki 25)"<<endl;
-    cin>>poslinkis;
+    zodzioIlgis = strlen(zodis);
+
+    cout<<"Irasykite rakta (negali buti ilgesnis nei "<<zodzioIlgis<<")"<<endl;
+    cin>>raktas;
+
+    raktoIlgis = strlen(raktas);
 
 
-    for(int i = 0; i < tekstoIlgis; i++) {
-        for(int j=0; j < sizeof(ABECELE); j++) {
-            if(toupper(tekstas[i]) == ABECELE[j]) {
-                rezultatoIndeksas = (j + poslinkis) % sizeof(ABECELE);
-                rezultatas[k] = ABECELE[rezultatoIndeksas];
-                k++;
+    if(raktoIlgis<zodzioIlgis) {
+        for(int i=raktoIlgis; i<zodzioIlgis; i++) {
+            raktas[i] = raktas[i-raktoIlgis];
+        }
+    }
+
+    for(int j=0; j < zodzioIlgis; j++) {
+        for(int m=0; m < sizeof(ABECELE); m++) {
+            if(toupper(zodis[j]) == ABECELE[m] ) {
+                zodisf[j]=m;
             }
         }
     }
-    cout<<endl;
+
+    for(int j=0; j < zodzioIlgis; j++) {
+        for(int m=0; m < sizeof(ABECELE); m++) {
+            if(toupper(raktas[j]) == ABECELE[m] ) {
+                raktasf[j]=m;
+            }
+        }
+    }
+
+    for(int k=0; k < zodzioIlgis; k++) {
+        for(int l=0; l < zodzioIlgis; l++) {
+            rezultatoIndeksas=(zodisf[k] + raktasf[k]) % sizeof(ABECELE);
+            rezultatas[k]=ABECELE[rezultatoIndeksas];
+
+        }
+    }
+
     cout<<rezultatas<<endl;
 
 }
 
 void abeceleDesifravimas() {
 
-    char tekstas[50];
+    char zodis[50];
+    char raktas[50];
     char rezultatas[50];
-    int tekstoIlgis, poslinkis, rezultatoIndeksas, l=0;
+    int zodzioIlgis, raktoIlgis,rezultatoIndeksas;
 
-    cout<<"Irasykite teksta: "<<endl;
-    cin>>tekstas;
 
-    cout<<"Irasykite poslinki: (1-25)"<<endl;
-    cin>>poslinkis;
+    cout<<"Irasykite zodi: "<<endl;
+    cin>>zodis;
 
-    tekstoIlgis = strlen(tekstas);
-    for(int i = 0; i < tekstoIlgis; i++) {
-        for(int j=0; j < sizeof(ABECELE); j++) {
-            if(toupper(tekstas[i]) == ABECELE[j]) {
-                rezultatoIndeksas = (j - poslinkis + sizeof(ABECELE)) % sizeof(ABECELE);
-                rezultatas[l] = ABECELE[rezultatoIndeksas];
-                l++;
-            }
+    zodzioIlgis = strlen(zodis);
+
+    cout<<"Irasykite rakta (negali buti ilgesnis nei "<<zodzioIlgis<<")"<<endl;
+    cin>>raktas;
+
+    raktoIlgis = strlen(raktas);
+
+
+    if(raktoIlgis<zodzioIlgis) {
+        for(int i=raktoIlgis; i<zodzioIlgis; i++) {
+            raktas[i] = raktas[i-raktoIlgis];
         }
     }
+
+    for(int j=0; j<zodzioIlgis; j++) {
+        for(int k=0; k<zodzioIlgis; k++) {
+            for(int l=0; l<sizeof(ABECELE); l++) {
+                for(int m=0; m<sizeof(ABECELE); m++) {
+                        if(toupper(zodis[j])==ABECELE[l] && toupper(raktas[k])==ABECELE[m]) {
+                            rezultatoIndeksas= (l - m +sizeof(ABECELE)) % sizeof(ABECELE);
+                            rezultatas[k] = ABECELE[rezultatoIndeksas];
+                        }
+                    }
+                }
+            }
+        }
+
     cout<<endl;
-    cout<<"Desifruotas tekstas: "<<rezultatas<<endl;
+    cout<<"Desifruotas zodis: "<<rezultatas<<endl;
 
 }
 
 void ASCIIsifravimas() {
 
-    char tekstas[50];
+    char zodis[50];
+    char raktas[50];
     char rezultatas[50];
-    int poslinkis, tekstoIlgis, rezultatoIndeksas, k=0;
+    int zodzioIlgis, raktoIlgis,rezultatoIndeksas;
 
 
-    cout<<"Parasykite teksta"<<endl;
-    cin>>tekstas;
+    cout<<"Irasykite zodi: "<<endl;
+    cin>>zodis;
 
-    tekstoIlgis = strlen(tekstas);
+    zodzioIlgis = strlen(zodis);
 
-    cout<<"Parasykite poslinki "<<"(turi buti nuo 1 iki 25)"<<endl;
-    cin>>poslinkis;
+    cout<<"Irasykite rakta (negali buti ilgesnis nei "<<zodzioIlgis<<")"<<endl;
+    cin>>raktas;
 
-    for(int i = 0; i < tekstoIlgis; i++) {
-            rezultatoIndeksas=(int(tekstas[i]) + poslinkis)%26;
-            rezultatas[k] = ABECELE[rezultatoIndeksas];
-            k++;
+    raktoIlgis = strlen(raktas);
+
+
+    if(raktoIlgis<zodzioIlgis) {
+        for(int i=raktoIlgis; i<zodzioIlgis; i++) {
+            raktas[i] = raktas[i-raktoIlgis];
+        }
     }
 
-cout<<rezultatas<<endl;
-
-
-}
-
-void ASCIIdesifravimas() {
-    char tekstas[50];
-    char rezultatas[50];
-    int poslinkis, tekstoIlgis, rezultatoIndeksas, k=0;
-
-
-    cout<<"Parasykite teksta"<<endl;
-    cin>>tekstas;
-
-    tekstoIlgis = strlen(tekstas);
-
-    cout<<"Parasykite poslinki "<<"(turi buti nuo 1 iki 25)"<<endl;
-    cin>>poslinkis;
-
-    for(int i = 0; i < tekstoIlgis; i++) {
-        rezultatoIndeksas=(int(tekstas[i]) - poslinkis + 26)%26;
-        rezultatas[k] = ABECELE[rezultatoIndeksas];
-        k++;
+    for(int j=0; j<zodzioIlgis; j++) {
+        for(int k=0; k<zodzioIlgis; k++) {
+            for(int n=0; n<zodzioIlgis; n++) {
+                rezultatoIndeksas= (int(zodis[j] + raktas[k])) % 93;
+                rezultatas[n] = char(rezultatoIndeksas + 93);
+            }
+        }
     }
 
-    cout<<rezultatas<<endl;
+
+    cout<<endl;
+    cout<<rezultatoIndeksas<<endl;
+
+
 }
 int main() {
+
     int choice;
     while(choice != 5) {
         cout<<"----------------------------------------------------------"<<endl;
@@ -123,27 +157,29 @@ int main() {
         cout<<"Irasykite pasirinkima (1-5)"<<endl;
         cin>>choice;
 
-    switch(choice) {
-        case 1:
-            cout<<"Jus pasirinkote sifravima su abecele "<<endl;
-        abeceleSifravimas();
-        break;
-        case 2:
-            cout<<"Jus pasirinkote desifravima su abecele "<<endl;
-        abeceleDesifravimas();
-        break;
-        case 3:
-            cout<<"Jus pasirinkote sifravima su ASCII koduote "<<endl;
-        ASCIIsifravimas();
-        break;
-        case 4:
-            cout<<"Jus pasirinkote desifravima su ASCII koduote "<<endl;
-        ASCIIdesifravimas();
-        break;
-        default:
-            cout<<"Programa baigta "<<endl;
+        switch(choice) {
+            case 1:
+                cout<<"Jus pasirinkote sifravima su abecele "<<endl;
+            abeceleSifravimas();
+            break;
+            case 2:
+                cout<<"Jus pasirinkote desifravima su abecele "<<endl;
+            abeceleDesifravimas();
+            break;
+            case 3:
+                cout<<"Jus pasirinkote sifravima su ASCII koduote "<<endl;
+            ASCIIsifravimas();
+            break;
+            case 4:
+                cout<<"Jus pasirinkote desifravima su ASCII koduote "<<endl;
+
+            break;
+            default:
+                cout<<"Programa baigta "<<endl;
+        }
     }
-}
+
 
     return 0;
+
 }
