@@ -56,7 +56,7 @@ void abeceleSifravimas() {
         }
     }
 
-    cout<<rezultatas<<endl;
+    cout<<"Uzsifruotas tekstas: "<<rezultatas<<endl;
 
 }
 
@@ -65,10 +65,11 @@ void abeceleDesifravimas() {
     char zodis[50];
     char raktas[50];
     char rezultatas[50];
-    int zodzioIlgis, raktoIlgis,rezultatoIndeksas;
+    int zodzioIlgis, raktoIlgis,rezultatoIndeksas,j=0;
+    int zodisf[50],raktasf[50];
 
 
-    cout<<"Irasykite zodi: "<<endl;
+    cout<<"Irasykite uzsifruota teksta: "<<endl;
     cin>>zodis;
 
     zodzioIlgis = strlen(zodis);
@@ -85,21 +86,32 @@ void abeceleDesifravimas() {
         }
     }
 
-    for(int j=0; j<zodzioIlgis; j++) {
-        for(int k=0; k<zodzioIlgis; k++) {
-            for(int l=0; l<sizeof(ABECELE); l++) {
-                for(int m=0; m<sizeof(ABECELE); m++) {
-                        if(toupper(zodis[j])==ABECELE[l] && toupper(raktas[k])==ABECELE[m]) {
-                            rezultatoIndeksas= (l - m +sizeof(ABECELE)) % sizeof(ABECELE);
-                            rezultatas[k] = ABECELE[rezultatoIndeksas];
-                        }
-                    }
-                }
+    for(int j=0; j < zodzioIlgis; j++) {
+        for(int m=0; m < sizeof(ABECELE); m++) {
+            if(toupper(zodis[j]) == ABECELE[m] ) {
+                zodisf[j]=m;
             }
         }
+    }
 
-    cout<<endl;
-    cout<<"Desifruotas zodis: "<<rezultatas<<endl;
+    for(int j=0; j < zodzioIlgis; j++) {
+        for(int m=0; m < sizeof(ABECELE); m++) {
+            if(toupper(raktas[j]) == ABECELE[m] ) {
+                raktasf[j]=m;
+            }
+        }
+    }
+
+    for(int k=0; k < zodzioIlgis; k++) {
+        for(int l=0; l < zodzioIlgis; l++) {
+            rezultatoIndeksas=(zodisf[k] - raktasf[k] + sizeof(ABECELE)) % sizeof(ABECELE);
+            rezultatas[k]=ABECELE[rezultatoIndeksas];
+
+        }
+    }
+
+    cout<<"Pradinis zodis: "<<rezultatas<<endl;
+
 
 }
 
@@ -108,7 +120,7 @@ void ASCIIsifravimas() {
     char zodis[50];
     char raktas[50];
     char rezultatas[50];
-    int zodzioIlgis, raktoIlgis,rezultatoIndeksas;
+    int zodzioIlgis, raktoIlgis,rezultatoIndeksas,j=0;
 
 
     cout<<"Irasykite zodi: "<<endl;
@@ -122,24 +134,53 @@ void ASCIIsifravimas() {
     raktoIlgis = strlen(raktas);
 
 
-    if(raktoIlgis<zodzioIlgis) {
+    if(raktoIlgis<zodzioIlgis) {                       //rakto ilgis
         for(int i=raktoIlgis; i<zodzioIlgis; i++) {
             raktas[i] = raktas[i-raktoIlgis];
         }
     }
 
-    for(int j=0; j<zodzioIlgis; j++) {
-        for(int k=0; k<zodzioIlgis; k++) {
-            for(int n=0; n<zodzioIlgis; n++) {
-                rezultatoIndeksas= (int(zodis[j] + raktas[k])) % 93;
-                rezultatas[n] = char(rezultatoIndeksas + 93);
-            }
+    for(int k=0; k < zodzioIlgis; k++) {
+            rezultatoIndeksas=((int(zodis[k]) + int(raktas[k])) % 93)+32;
+            rezultatas[k]=char(rezultatoIndeksas);
+    }
+
+    cout<<"Uzsifruotas tekstas: "<<rezultatas<<endl;
+
+
+}
+
+void ASCIIdesifravimas() {
+
+    char zodis[50];
+    char raktas[50];
+    char rezultatas[50];
+    int zodzioIlgis, raktoIlgis,rezultatoIndeksas,j=0;
+
+
+    cout<<"Irasykite desifruota zodi: "<<endl;
+    cin>>zodis;
+
+    zodzioIlgis = strlen(zodis);
+
+    cout<<"Irasykite rakta (negali buti ilgesnis nei "<<zodzioIlgis<<")"<<endl;
+    cin>>raktas;
+
+    raktoIlgis = strlen(raktas);
+
+
+    if(raktoIlgis<zodzioIlgis) {                       //rakto ilgis
+        for(int i=raktoIlgis; i<zodzioIlgis; i++) {
+            raktas[i] = raktas[i-raktoIlgis];
         }
     }
 
+    for(int k=0; k < zodzioIlgis; k++) {
+        rezultatoIndeksas=((int(zodis[k]) - int(raktas[k]) + 93) % 93);
+        rezultatas[k]=char(rezultatoIndeksas);
+    }
 
-    cout<<endl;
-    cout<<rezultatoIndeksas<<endl;
+    cout<<"Pradinis tekstas: "<<rezultatas<<endl;
 
 
 }
@@ -172,7 +213,7 @@ int main() {
             break;
             case 4:
                 cout<<"Jus pasirinkote desifravima su ASCII koduote "<<endl;
-
+            ASCIIdesifravimas();
             break;
             default:
                 cout<<"Programa baigta "<<endl;
