@@ -39,7 +39,7 @@ void showMenu() {
         cout<<"-----------------------------------------------"<<endl;
         cin>>choice[i];
 
-        switch (choice[i]) {
+        switch (choice[i]) {                                                            //nereikia while dël switch
             case 1:
                 cout<<"Jus pasirinkote kiauðinienæ"<<endl;
             cout<<"Kiek vienetø uþsisakysite?"<<endl;
@@ -137,7 +137,7 @@ void getData() {
 void printCheck () {
     double mokesciai, suma;
 
-          if(patiekaluKiekis==1) {
+          if(patiekaluKiekis==1) {                                                       //if sàlygoje du ==
        suma = pasirinkimas[1].menuPrice;
        mokesciai=(suma/100)*21;
    } else if (patiekaluKiekis==2) {
@@ -169,7 +169,7 @@ void printCheck () {
     cout<<"Mokesèiai                                       "<<mokesciai<<"€"<<endl;
     cout<<"Galutinë suma                                     "<<suma<<"€"<<endl;
 
-    ofstream file;
+    ofstream file;                                                                     // ifstream jeigu áðimti ið failo, ofstream jeigu ádëti á failà
 
     file.open("check");
     for(int i=1; i<=patiekaluKiekis; i++) {
@@ -183,7 +183,7 @@ void printCheck () {
 
 int main() {
 
-    system("chcp 1257 >null");
+    system("chcp 1257 >null");                                                   //Leidþia lietuviðkas raides
 
     cout<<"------Sveiki atvyke i restoranà „Le restorane“------"<<endl;
     cout<<"------------------------MENU------------------------"<<endl;
@@ -194,7 +194,7 @@ int main() {
     cout<<"Kiek is viso skirtingu patiekalu uzsisakysite? (Max 8)"<<endl;
     cin>>patiekaluKiekis;
 
-    while(patiekaluKiekis>8) {
+    while(patiekaluKiekis>8) {                                                          //while ir if sàlygos turi bûti skirtingos jeigu yra tame paèiame
         cout<<"Negali bûti didesnis uþ 8"<<endl;
         cout<<"Kiek is viso skirtingu patiekalu uzsisakysite? (Max 8)"<<endl;
         cin>>patiekaluKiekis;
