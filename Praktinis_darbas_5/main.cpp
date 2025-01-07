@@ -55,7 +55,7 @@ void uzduotis1() {
             }
         }
     }
-    cout<<"Didþiausias skaièius: "<<max<<endl;
+    cout<<"Didziausias skaicius: "<<max<<endl;
 
     cout<<"-----------------------------"<<endl;
 
@@ -129,17 +129,23 @@ void case3() {
     cin>>pasirinkimas3;
     delete zm[pasirinkimas3];
     cout<<"Irasas "<<pasirinkimas3<<" Istrintas"<<endl;
+
+    infoSkaicius--;
+
+    for(int i=pasirinkimas3; i<infoSkaicius; i++) {
+        zm[i]->vardas=zm[i+1]->vardas;
+        zm[i]->pavarde=zm[i+1]->pavarde;
+        zm[i]->amzius=zm[i+1]->amzius;
+        zm[i]->miestas=zm[i+1]->miestas;
+
+    }
 }
 
 void case4() {
 
         cout<<"Sarasas:"<<endl;
         for(int i=1; i<=infoSkaicius; i++) {
-            if (zm[i]->amzius==0) {
-                cout<<endl;
-            } else {
                 cout<<i<<". "<<zm[i]->vardas<<" "<<zm[i]->pavarde<<endl;
-            }
         }
         cout<<endl;
         cout<<"Kuri irasa noretumete perziureti?"<<endl;
@@ -180,7 +186,7 @@ void uzduotis2() {
                 case4();
             break;
             default:
-                cout<<"Tokio pasirinkimo nera"<<endl;
+                cout<<"Darbas baigtas"<<endl;
         }
     }
 
@@ -191,8 +197,8 @@ void uzduotis2() {
 int main() {
 
     system("chcp 1257 >null");
-    uzduotis2();
 
+   uzduotis1();
 
 
     return 0;
