@@ -3,54 +3,63 @@ using namespace std;
 
 
 void uzduotis1() {
+    int eilSkaicius, stulpSkaicius;
+    int max;
 
-    int eilSkaicius,stulpSkaicius;
-    int masyvas[50][50];
-    int max=masyvas[0][0];
+    cout << "Iveskite eiluciu skaiciu" << endl;
+    cin >> eilSkaicius;
+    cout << "Iveskite stulpeliu skaiciu" << endl;
+    cin >> stulpSkaicius;
 
-    cout<<"Iveskite eiluciu skaiciu"<<endl;
-    cin>>eilSkaicius;
-    cout<<"Iveskite stulpeliu skaiciu"<<endl;
-    cin>>stulpSkaicius;
+    int** masyvas = new int*[eilSkaicius];
+    for (int i = 0; i < eilSkaicius; i++) {
+        masyvas[i] = new int[stulpSkaicius];
+    }
 
-//Ivedimas
-    for(int i=0;i<eilSkaicius;i++) {
-        for(int j=0;j<stulpSkaicius;j++) {
-            cout<<"Iveskite "<<i+1<<" eilutes ir "<<j+1<<" stulpelio elementa"<<endl;
-            cin>>masyvas[i][j];
+    max=masyvas[0][0];
+
+    //ivedimas
+    for (int i = 0; i < eilSkaicius; i++) {
+        for (int j = 0; j < stulpSkaicius; j++) {
+            cout<<"Iveskite "<<i+1<<" eilutes ir " <<j+1<<" stulpelio elementa" << endl;
+            cin >> masyvas[i][j];
         }
     }
     cout<<"-----------------------------"<<endl;
-//spausdinimas
-    for(int i=0;i<eilSkaicius;i++) {
-        for(int j=0;j<stulpSkaicius;j++) {
-            cout<<masyvas[i][j]<<"   ";
+
+    //spausdinimas
+    for (int i = 0; i < eilSkaicius; i++) {
+        for (int j = 0; j < stulpSkaicius; j++) {
+            cout << masyvas[i][j] << "   ";
         }
-        cout<<endl;
+        cout << endl;
     }
     cout<<"-----------------------------"<<endl;
-//eil suma
-    for(int i=0;i<eilSkaicius;i++) {
-        int eilSudetis=0;
-        for(int j=0;j<stulpSkaicius;j++) {
+
+    //Eil suma
+    for (int i = 0; i < eilSkaicius; i++) {
+        int eilSudetis = 0;
+        for (int j = 0; j < stulpSkaicius; j++) {
             eilSudetis += masyvas[i][j];
         }
         cout<<i+1<<" eilutes sudetis = "<<eilSudetis<<endl;
     }
     cout<<"-----------------------------"<<endl;
-//stulp suma
-    for(int j=0;j<stulpSkaicius;j++) {
-        int stulpSudetis=0;
-        for(int i=0;i<eilSkaicius;i++) {
+
+    //Stulp suma
+    for (int j = 0; j < stulpSkaicius; j++) {
+        int stulpSudetis = 0;
+        for (int i = 0; i < eilSkaicius; i++) {
             stulpSudetis += masyvas[i][j];
         }
-        cout<<j+1<<" Stulpelio sudetis = "<<stulpSudetis<<endl;
+        cout<<j+1<<" stulpelio sudetis = " <<stulpSudetis<< endl;
     }
     cout<<"-----------------------------"<<endl;
-//max
-    for (int i=0;i<eilSkaicius;i++) {
-        for (int j=0;j<stulpSkaicius;j++) {
-            if (masyvas[i][j]>max) {
+
+    //max
+    for (int i = 0; i < eilSkaicius; i++) {
+        for (int j = 0; j < stulpSkaicius; j++) {
+            if (masyvas[i][j] > max) {
                 max = masyvas[i][j];
             }
         }
@@ -59,6 +68,10 @@ void uzduotis1() {
 
     cout<<"-----------------------------"<<endl;
 
+    for (int i = 0; i < eilSkaicius; i++) {
+        delete[] masyvas[i];
+    }
+    delete[] masyvas;
 }
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -104,6 +117,7 @@ while (choice!=3) {
             cin>>pasirinkimas;
 
             switch (pasirinkimas) {
+
                 case 1:
                     infoSkaicius++;
                 zm[infoSkaicius] = new informacija();
@@ -124,6 +138,7 @@ while (choice!=3) {
                 cout<<"Miestas: "<<zm[infoSkaicius]->miestas<<endl;
                 cout<<"----------------------------------"<<endl;
                 break;
+
                 case 2:
                     cout<<"Kuri irasa noretumete redaguoti (1-"<<infoSkaicius<<")"<<endl;
                 for(int i=1; i<=infoSkaicius; i++) {
@@ -147,24 +162,33 @@ while (choice!=3) {
                 cout<<"Miestas: "<<zm[pasirinkimas2]->miestas<<endl;
                 cout<<"----------------------------------"<<endl;
                 break;
+
                 case 3:
-                    cout<<"Kuri irasa noretumete istrinti: (1-"<<infoSkaicius<<")"<<endl;
-                for(int i=1; i<=infoSkaicius; i++) {
-                    cout<<i<<". "<<zm[i]->vardas<<" "<<zm[i]->pavarde<<endl;
+                    cout << "Kuri irasa noretumete istrinti: (1-" << infoSkaicius << ")" << endl;
+                for (int i = 1; i <= infoSkaicius; i++) {
+                    cout << i << ". " << zm[i]->vardas << " " << zm[i]->pavarde << endl;
                 }
-                cout<<endl;
-                cin>>pasirinkimas3;
-                delete zm[pasirinkimas3];
+                cout << endl;
+                cin >> pasirinkimas3;
 
-                cout<<"Irasas "<<pasirinkimas3<<" Istrintas"<<endl;
+                if (pasirinkimas3 >= 1 && pasirinkimas3 <= infoSkaicius) {
+                    for (int i = pasirinkimas3; i < infoSkaicius; i++) {
+                        zm[i]->vardas = zm[i+1]->vardas;
+                        zm[i]->pavarde = zm[i+1]->pavarde;
+                        zm[i]->amzius = zm[i+1]->amzius;
+                        zm[i]->miestas = zm[i+1]->miestas;
+                    }
 
-                infoSkaicius--;
+                    zm[infoSkaicius]->vardas = "";
+                    zm[infoSkaicius]->pavarde = "";
+                    zm[infoSkaicius]->amzius = 0;
+                    zm[infoSkaicius]->miestas = "";
 
-                for(int i=pasirinkimas3; i<infoSkaicius; i++) {
-                    zm[i]->vardas=zm[i+1]->vardas;
-                    zm[i]->pavarde=zm[i+1]->pavarde;
-                    zm[i]->amzius=zm[i+1]->amzius;
-                    zm[i]->miestas=zm[i+1]->miestas;
+                    infoSkaicius--;
+
+                    cout << "Irasas " << pasirinkimas3 << " istrintas." << endl;
+                }  else  {
+                    cout << "Tokio iraso nera" << endl;
                 }
                 break;
 
