@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/AL_5_praktine_uzduotis/cmake-build-debug/CMakeFiles/AL_5_praktine_uzduotis.dir
+C:/Users/User/CLionProjects/AL_5_praktine_uzduotis/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/AL_5_praktine_uzduotis/cmake-build-debug/CMakeFiles/rebuild_cache.dir
