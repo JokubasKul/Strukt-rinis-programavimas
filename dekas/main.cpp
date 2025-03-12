@@ -6,12 +6,12 @@ int dekas[50], kiekis, choice, dydis=-1;
 
 void iterpimas_i_pradzia() {
 
-    dydis++;
-
-    if (dydis == kiekis-1) {
+    if (dydis >= kiekis-1) {
         cout<<"Daugiau skaiciu nebegalima prideti, nes dekas yra pilnas"<<endl;
     } else {
         cout<<"Jus pasirinkote iterpima i pradzia"<<endl;
+
+        dydis++;
 
         for(int i=dydis; i>=0; i--) {
             dekas[i+1]=dekas[i];
@@ -24,7 +24,7 @@ void iterpimas_i_pradzia() {
 
 void iterpimas_i_pabaiga() {
 
-    if (dydis == kiekis-1) {
+    if (dydis >= kiekis-1) {
         cout<<"Daugiau skaiciu nebegalima prideti, nes dekas yra pilnas"<<endl;
     } else {
         cout<<"Jus pasirinkote iterpima i pabaiga"<<endl;
@@ -45,11 +45,11 @@ void pasalinimas_is_pradzios() {
         cout<<"Jus pasirinkote pasalinima is pradzios"<<endl;
         cout<<endl;
 
+        cout<<"Elementas: "<<dekas[0]<<" pasalintas"<<endl;
+
         for(int i=0; i<dydis; i++) {
             dekas[i]=dekas[i+1];
         }
-
-        cout<<"Pirmasis elementas pasalintas"<<endl;
 
         dydis--;
     }
@@ -61,8 +61,12 @@ void pasalinimas_is_pabaigos() {
         cout<<"Deke dar nera elementu"<<endl;
     } else {
         cout<<"Jus pasirinkote pasalinti is pabaigos"<<endl;
+        cout<<endl;
+        cout<<"Elementas: "<<dekas[dydis]<<" pasalintas"<<endl;
 
         dydis--;
+
+
     }
 }
 
@@ -117,12 +121,9 @@ int main() {
                 perziureti_deka();
             break;
             default:
-                cout<<"Tokio pasirinkimo nera"<<endl;
+                cout<<"Darbas baigtas"<<endl;
         }
     } while(choice != 6);
-
-    cout<<string(15, '\n');
-    system("pause");
 
     return 0;
 }
