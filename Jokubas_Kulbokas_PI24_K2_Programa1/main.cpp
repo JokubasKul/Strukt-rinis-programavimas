@@ -32,15 +32,15 @@ void iterpti_i_pabaiga(int elementas) {
     sarasas *el = new sarasas();
     el->duom=elementas;
 
-    if (pradzia==nullptr) {
+    if (pradzia==nullptr) {          //jeigu sarasas yra tuscias
         pradzia=el;
         el->kitas=el;
     } else {
         sarasas *paskutinis=pradzia;
-        while (paskutinis->kitas!=pradzia) {
+        while (paskutinis->kitas!=pradzia) {        //suranda paskutini
             paskutinis=paskutinis->kitas;
         }
-        paskutinis->kitas=el;
+        paskutinis->kitas=el;      //iterpiama i pabaiga
         el->kitas=pradzia;
     }
 
@@ -60,17 +60,17 @@ void iterpti_pries(int pries_ka,int elementas) {
     do {
         if (pr->duom==pries_ka) {
             sarasas *el = new sarasas();
-            el->duom=elementas;
+            el->duom=elementas;          //naujas elementas yra pries pr
             el->kitas=pr;
 
-            if (ankstesnis!=nullptr) {
-                ankstesnis->kitas=el;
+            if (ankstesnis!=nullptr) {    //ankstesnis yra pries pr
+                ankstesnis->kitas=el;    //iterpiama po ankstesnis
 
-            } else {
+            } else {       //jeigu nori iterpti prie pirma elementa
 
                 sarasas *paskutinis=pradzia;
 
-                while (paskutinis->kitas!=pradzia) {
+                while (paskutinis->kitas!=pradzia) {    //paskutinis yra paskutinis saraso elementas
                     paskutinis=paskutinis->kitas;
                 }
                 paskutinis->kitas = el;
@@ -79,7 +79,7 @@ void iterpti_pries(int pries_ka,int elementas) {
             }
             return;
         }
-        ankstesnis=pr;
+        ankstesnis=pr;    //ankstesnis juda kartu su pr
         pr=pr->kitas;
     } while (pr!=pradzia);
 
@@ -104,7 +104,7 @@ void iterpti_po(int po_ko, int elementas) {
             el->kitas=pr->kitas;
             pr->kitas=el;
 
-            if (pr==pradzia) {
+            if (pr==pradzia) {      //jeigu nori iterpti i pabaiga
                 pradzia=el;
             }
 
@@ -128,20 +128,20 @@ void pasalinti_elementa(int elementas) {
 
     do {
         if (pr->duom==elementas) {
-            if (pr==pradzia) {
+            if (pr==pradzia) {           //jeigu nori pasalinti pradzia
 
                 sarasas *paskutinis=pradzia;
 
-                while (paskutinis->kitas!=pradzia) {
+                while (paskutinis->kitas!=pradzia) {    //suranda paskutini elementa sarase
                     paskutinis=paskutinis->kitas;
                 }
 
-                if (pradzia==pradzia->kitas) {
+                if (pradzia==pradzia->kitas) {          //jeigu yra tik vienas elementas
                     cout<<"Elementas: "<<pr->duom<<" pasalintas"<<endl;
 
                     delete pradzia;
                     pradzia=nullptr;
-                } else {
+                } else {                 //jeigu salinamas paskutinis elementas
                     pradzia=pr->kitas;
                     paskutinis->kitas=pradzia;
 
@@ -224,11 +224,11 @@ void perkelti_maziausius() {
     sarasas *pr=pradzia;
 
     do {
-        if (pr->duom==min) {
+        if (pr->duom==min) {             //suranda maziausia
             do {
                 stekas *el=new stekas();
                 el->duom=pr->duom;
-                el->kitas=pradzia2;
+                el->kitas=pradzia2;      //iterpia i pradzia ir juos visus iki pabaigos iterpia i steka
                 pradzia2=el;
 
                 pr=pr->kitas;
@@ -253,11 +253,11 @@ void perkelti_nelyginius() {
     sarasas *pr=pradzia;
 
     do {
-        if (pr->duom%2!=0) {
+        if (pr->duom%2!=0) {         //suranda nelygini skaiciu
             nelyginiai++;
 
-            if (nelyginiai <= 2) {
-                stekas *el = new stekas();
+            if (nelyginiai <= 2) {          //daro tai iki tol kol nelyginiu yra nedaugiau 2
+                stekas *el = new stekas(); //jie iterpiami i steka
                 el->duom = pr->duom;
                 el->kitas = pradzia2;
                 pradzia2 = el;
@@ -286,7 +286,7 @@ void isvalyti_steka() {
 
     stekas *temp;
 
-    while (pradzia2 != nullptr) {
+    while (pradzia2 != nullptr) {      //steko visi elementai pasalinami
         temp = pradzia2;
         pradzia2 = pradzia2->kitas;
         delete temp;
