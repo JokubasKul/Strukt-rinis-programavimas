@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/Jokubas_Kulbokas_PI24_K2_Programa2/cmake-build-debug/CMakeFiles/Jokubas_Kulbokas_PI24_K2_Programa2.dir
+C:/Users/User/CLionProjects/Jokubas_Kulbokas_PI24_K2_Programa2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/Jokubas_Kulbokas_PI24_K2_Programa2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
