@@ -25,23 +25,58 @@ void iterpti_i_pradzia(int elementas) {
 }
 
 
-void iterpti_i_viduri(int elementas, int pries) {
+void iterpti_pries(int pries_ka,int elementas) {
 
-        sarasas *pr = pradzia;
+    if (pradzia==nullptr) {
+        cout<< "Sarasas yra tuscias"<<endl;
+        return;
+    }
 
-        while (pr!=nullptr && pr->duom!=pries) {   //suranda "pries" elementa, po jo bus iterpiama
+    sarasas *pr=pradzia;
+
+    if (pr->duom==pries_ka) {               //jeigu norima iterpti pries pirmaji elementa
+        sarasas *el = new sarasas();
+        el->duom=elementas;
+        el->kitas=pradzia;
+        pradzia=el;
+        return;
+    }
+
+    do {
+        if (pr->kitas!=nullptr && pr->kitas->duom==pries_ka) {        //suranda vieta kur nori iterpti (pries pries_ka)
+            sarasas *el = new sarasas();
+            el->duom=elementas;
+            el->kitas=pr->kitas;          //iterpiamas naujas elementas
+            pr->kitas=el;
+
+            return;
+        }
+        pr=pr->kitas;
+    } while (pr!=nullptr);
+
+    cout<<"Elemento "<<pries_ka<<" sarase nera"<<endl;
+
+}
+
+
+
+void iterpti_po(int elementas, int po_ko) {
+
+        sarasas *pr=pradzia;
+
+        while (pr!=nullptr && pr->duom!=po_ko) {           //surandamas po_ko
             pr=pr->kitas;
         }
         if (pr!=nullptr) {
 
-            sarasas *el = new sarasas();        //naujas elementas yra iterpiamas
+            sarasas *el = new sarasas();
             el->duom = elementas;
 
-            el->kitas = pr->kitas;          //naujausias elementas yra sujungtas su elementu po jo
-            pr->kitas = el;                 //naujausias elementas yra sujungiamas su elementu pries ji (pr)
+            el->kitas = pr->kitas;                 //itepriamas elementas po po_ko
+            pr->kitas=el;
 
         } else {
-            cout<<"Elemento "<<pries<<" sarase nera"<<endl;
+            cout<<"Elemento "<<po_ko<<" sarase nera"<<endl;
         }
 }
 
@@ -157,6 +192,42 @@ int pasalinti_is_pabaigos() {
 }
 
 
+void pasalinti_elementa(int elementas) {
+
+    if (pradzia==nullptr) {
+        cout<<"Sarasas yra tuscias"<<endl;
+        return;
+    }
+
+    if (pradzia->duom==elementas) {                  //jeigu pirmasis elementas yra salinamas
+        sarasas *temp=pradzia;
+        pradzia=pradzia->kitas;
+        delete temp;
+
+        cout<<"Elementas "<<elementas<<" pasalintas is saraso"<<endl;
+
+        return;
+    }
+
+    sarasas *pr = pradzia;
+    while (pr->kitas != nullptr) {
+        if (pr->kitas->duom==elementas) {          //randamas elementas pries salinamaji
+            sarasas *temp=pr->kitas;           //temp yra salinamas
+            pr->kitas=pr->kitas->kitas;     //uzpildoma skyle
+            delete temp;
+
+            cout<<"Elementas "<<elementas<<" pasalintas is saraso"<<endl;
+
+            return;
+        }
+        pr=pr->kitas;
+    }
+
+    cout<<"Elemento "<<elementas<<" nera sarase"<<endl;
+}
+
+
+
 void spausdinti_sarasa() {
 
     sarasas* pr=pradzia;          //pradeda nuo pradzios
@@ -216,25 +287,25 @@ int maximum() {
 }
 
 int main() {
+    int kiekis, duomuo, choice, po_kurio, pries_ka;
 
-    int kiekis, duomuo, choice, po_kurio;
-
-    while (choice!=9) {
+    while (choice!=11) {
         cout<<"-------------------------------------------------"<<endl;
         cout<<"Ka noretumete daryti?"<<endl;
         cout<<endl;
         cout<<"ITERPTI:                          PASALINTI:  "<<endl;
-        cout<<"1. I pradzia                      4. Is pradzios"<<endl;
-        cout<<"2. I viduri                       5. Is vidurio"<<endl;
-        cout<<"3. I pabaiga                      6. Is pabaigos"<<endl;
+        cout<<"1. I pradzia                      5. Is pradzios"<<endl;
+        cout<<"2. Po elemento                    6. Is vidurio"<<endl;
+        cout<<"3. Pries elementa                 7. Is pabaigos"<<endl;
+        cout<<"4. I pabaiga                      8. Siaip pasalinti"<<endl;
         cout<<endl;
-        cout<<"7. Rasti maziausia ir didziausia skaiciu"<<endl;
+        cout<<"9. Rasti maziausia ir didziausia skaiciu"<<endl;
         cout<<endl;
-        cout<<"8. Spausdinti sarasa"<<endl;
+        cout<<"10. Spausdinti sarasa"<<endl;
         cout<<endl;
-        cout<<"9. Baigti darba"<<endl;
+        cout<<"11. Baigti darba"<<endl;
         cout<<"-------------------------------------------------"<<endl;
-        cout<<"Parasykite 1 - 9"<<endl;
+        cout<<"Parasykite 1 - 11"<<endl;
         cin>>choice;
 
         switch(choice) {
@@ -271,26 +342,41 @@ int main() {
                     for(int i=0;i<kiekis;i++) {
                         cout<<"Irasykite skaiciu"<<endl;
                         cin>>duomuo;
-                        iterpti_i_viduri(duomuo, po_kurio);
+                        iterpti_po(duomuo, po_kurio);
                     }
                 }
             break;
             case 3:
-                cout<<"Kiek skaiciu noresite irasyti?"<<endl;
+                cout<<"Sarasas: "<<endl;
+            spausdinti_sarasa();
+            cout<<"Pries kuri elementa noresite iterpti?"<<endl;
+            cout<<endl;
+            cin>>pries_ka;
+            cout<<endl;
+            cout<<"Kiek elementu noresite iterpti?"<<endl;
             cin>>kiekis;
-
-            for(int i=0;i<kiekis;i++) {
-                cout<<"Irasykite skaiciu"<<endl;
+            for (int i=0; i<kiekis; i++) {
+                cout<<"Iterpkite elementa"<<endl;
                 cin>>duomuo;
-                iterpti_i_pabaiga(duomuo);
+                iterpti_pries(pries_ka,duomuo);
             }
-            break;
-            case 4:
-                cout<<"-----------------------------"<<endl;
+                break;
+                case 4:
+                    cout<<"Kiek skaiciu noresite irasyti?"<<endl;
+                cin>>kiekis;
+
+                for(int i=0;i<kiekis;i++) {
+                    cout<<"Irasykite skaiciu"<<endl;
+                    cin>>duomuo;
+                    iterpti_i_pabaiga(duomuo);
+                }
+                break;
+                case 5:
+                    cout<<"-----------------------------"<<endl;
                 cout<<"Panaikinas elementas: "<<pasalinti_is_pradzios()<<endl;
-            break;
-            case 5:
-                cout<<"Kuri elementa noretumete istrinti?"<<endl;
+                break;
+                case 6:
+                    cout<<"Kuri elementa noretumete istrinti?"<<endl;
                 cout<<endl;
                 spausdinti_sarasa();
                 cout<<endl;
@@ -298,26 +384,33 @@ int main() {
                 pasalinti_is_vidurio(duomuo);
                 cout<<"-----------------------------"<<endl;
                 cout<<"Panaikinas elementas: "<<duomuo<<endl;
-            break;
-            case 6:
-                cout<<"-----------------------------"<<endl;
+                break;
+                case 7:
+                    cout<<"-----------------------------"<<endl;
                 cout<<"Panaikinas elementas: "<<pasalinti_is_pabaigos()<<endl;
-            break;
-            case 7:
-                cout<<"-----------------------------"<<endl;
+                break;
+                case 8:
+                    cout<<"Sarasas: "<<endl;
+                spausdinti_sarasa();
+                cout<<"Kuri elementa noretumete pasalinti?"<<endl;
+                cout<<endl;
+                cin>>duomuo;
+                pasalinti_elementa(duomuo);
+                break;
+                case 9:
+                    cout<<"-----------------------------"<<endl;
                 cout<<"Maziausias skaicius: "<<minimum()<<endl;
                 cout<<"Didziausias skaicius: "<<maximum()<<endl;
-            break;
-            case 8:
-                cout<<"-----------------------------"<<endl;
+                break;
+                case 10:
+                    cout<<"-----------------------------"<<endl;
                 cout<<"Sarasas:"<<endl;
                 spausdinti_sarasa();
-            break;
-            default:
-                cout<<"Darbas baigtas"<<endl;
-            break;
+                break;
+                default:
+                    cout<<"Darbas baigtas"<<endl;
+                break;
+            }
         }
-    }
-
-    return 0;
+        return 0;
 }
