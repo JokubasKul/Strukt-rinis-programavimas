@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/medis/cmake-build-debug/CMakeFiles/medis.dir
+C:/Users/User/CLionProjects/medis/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/medis/cmake-build-debug/CMakeFiles/rebuild_cache.dir
