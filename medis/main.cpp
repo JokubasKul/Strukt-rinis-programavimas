@@ -11,6 +11,15 @@ struct medis {
 };
 
 
+struct sarasas {
+    int duom;
+    sarasas* kitas;
+};
+
+
+sarasas* pradzia=nullptr;
+
+
 medis* naujasElementas(int elementas) {
 
     medis* el=new medis();
@@ -74,12 +83,12 @@ medis* pasalinti(medis* saknis, int elementas) {
 }
 
 
-void spausdinti(medis* saknis) {
+void spausdinti_medi(medis* saknis) {
 
     if (saknis!=nullptr) {
-        spausdinti(saknis->kaire);      //pirma atspausdina kaire, tada sakni, tada desine
+        spausdinti_medi(saknis->kaire);      //pirma atspausdina kaire, tada sakni, tada desine
         cout<<saknis->duom<<" ";
-        spausdinti(saknis->desine);
+        spausdinti_medi(saknis->desine);
     }
 }
 
@@ -111,6 +120,39 @@ int maximum(medis* saknis) {
     return max->duom;
 }
 
+
+void perkeltiMaziauNei10(medis*& saknis, sarasas*& pradzia) {
+
+    if (saknis == nullptr) return;
+
+    perkeltiMaziauNei10(saknis->kaire, pradzia);
+    perkeltiMaziauNei10(saknis->desine, pradzia);
+
+    if (saknis->duom<10) {
+
+        sarasas* el=new sarasas();
+        el->duom=saknis->duom;
+        el->kitas=pradzia;
+        pradzia=el;
+
+        saknis = pasalinti(saknis, el->duom);
+    }
+}
+
+
+void spausdinti_sarasa() {
+
+    sarasas* pr=pradzia;
+
+    cout<<"| ";
+    while (pr!=nullptr) {
+        cout<<pr->duom<<" ";
+        pr=pr->kitas;
+    }
+    cout<<"|"<<endl;
+}
+
+
 int main() {
 
     medis* saknis=nullptr;
@@ -124,16 +166,17 @@ int main() {
         saknis = iterpti(saknis, duomuo);
     }
 
-    while (choice!=4) {
+    while (choice!=5) {
         cout<<"----------------------------------------"<<endl;
         cout<<"Ka noretumete padaryti?"<<endl;
         cout<<"1. Iterpti nauja elementa"<<endl;
         cout<<"2. Pasalinti elementa"<<endl;
         cout<<"3. Atspausdinti medi"<<endl;
+        cout<<"4. Atspausdinti sarasa ir perkelti mazesnius uz 10"<<endl;
         cout<<endl;
-        cout<<"4. Baigti darba"<<endl;
+        cout<<"5. Baigti darba"<<endl;
         cout<<"----------------------------------------"<<endl;
-        cout<<"Irasykite 1 - 4"<<endl;
+        cout<<"Irasykite 1 - 5"<<endl;
         cin>>choice;
 
         switch(choice) {
@@ -150,7 +193,7 @@ int main() {
             case 2:
                 cout<<"Sarasas:"<<endl;
                 cout<<"| ";
-                spausdinti(saknis);
+                spausdinti_medi(saknis);
                 cout<<"|"<<endl;
                 cout<<"Kuri elementa noresite pasalinti?"<<endl;
                 cin>>duomuo;
@@ -162,7 +205,7 @@ int main() {
                 } else {
                     cout<<"Sarasas:"<<endl;
                     cout<<"| ";
-                    spausdinti(saknis);
+                    spausdinti_medi(saknis);
                     cout<<"|"<<endl;
 
                     cout<<"Maziausias: "<<minimum(saknis)<<endl;
@@ -170,6 +213,11 @@ int main() {
                 }
             break;
             case 4:
+                perkeltiMaziauNei10(saknis, pradzia);
+                cout<<"Sarasas kai visi mazesnis uz 10 perkelti: "<<endl;
+                spausdinti_sarasa();
+            break;
+            case 5:
                 cout<<"Darbas baigtas"<<endl;
             break;
             default:
