@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/SOM_savarankiskas_darbas/cmake-build-debug/CMakeFiles/SOM_savarankiskas_darbas.dir
+C:/Users/User/CLionProjects/SOM_savarankiskas_darbas/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/SOM_savarankiskas_darbas/cmake-build-debug/CMakeFiles/rebuild_cache.dir
