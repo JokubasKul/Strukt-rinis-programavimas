@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/c++PazymiuSistema/cmake-build-debug/CMakeFiles/c__PazymiuSistema.dir
+C:/Users/User/CLionProjects/c++PazymiuSistema/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/c++PazymiuSistema/cmake-build-debug/CMakeFiles/rebuild_cache.dir
